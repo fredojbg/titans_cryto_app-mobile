@@ -6,7 +6,7 @@ const window = Dimensions.get('window');
 export const MainContainer = styled.KeyboardAvoidingView`
   flex: 1;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 `;
 
 export const Container = styled.View`
@@ -20,7 +20,7 @@ export const Header = styled.Text`
   font-weight: bold;
   width: 90%;
   margin: 30px 0px 30px 0px;
-  color: ${({theme}) => theme.colors.text};
+  color: #FFFFFF;
 `;
 
 export const FixedView = styled.View`
@@ -33,15 +33,15 @@ export const FixedView = styled.View`
 `;
 
 export const Bottom = styled.View`
-  background-color: #1B232A;
+  background-color: #1b232a;
   flex: 1;
 `;
 
 export const FormWrapper = styled.View`
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   width: 100%;
-  flex: 1;
+  height: 35%;
 `;
 export const InputText = styled.TextInput`
   width: 100%;
@@ -76,8 +76,7 @@ export const BottomWrapper = styled.View`
 
 export const LoginButton = styled.TouchableOpacity`
   width: 90%;
-  background-color: ${props =>
-    props.disabled ? '#D2D3D6' : props.theme.colors.primary};
+  background-color: ${props => (props.disabled ? '#D2D3D6' : '#5ED5A8')};
   justify-content: center;
   align-items: center;
   height: 50px;

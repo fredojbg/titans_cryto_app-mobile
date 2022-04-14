@@ -5,10 +5,10 @@ import React, {
   forwardRef,
   useImperativeHandle,
 } from 'react';
-import {TextInputProps, TextInput} from 'react-native';
+import {TextInputProps} from 'react-native';
 import {useField} from 'formik';
 import EyeIcon from '../../assets/Login/eye-slash.svg';
-import {Container, ErrorText} from './styles';
+import {Container, ErrorText, TextInput} from './styles';
 
 interface InputProps extends TextInputProps {
   name: string;
@@ -62,7 +62,11 @@ const PasswordInput: React.ForwardRefRenderFunction<InputRef, InputProps> = (
           onFocus={handleInputFocus}
           {...props}
         />
-        <EyeIcon />
+        <EyeIcon
+          onPress={() => {
+            setShowPass(!showPass);
+          }}
+        />
       </Container>
       {meta.error && <ErrorText>{meta.error}</ErrorText>}
     </>

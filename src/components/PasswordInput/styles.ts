@@ -13,6 +13,7 @@ export const Container = styled.View<ContainerProps>`
   margin: 10px 0px;
   border-width: 1px;
   border-radius: 5px;
+  background-color: #161C22;
   border-color: ${({theme}) => theme.colors.border};
   ${props =>
     props.isErrored &&

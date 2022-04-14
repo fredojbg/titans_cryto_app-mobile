@@ -1,10 +1,11 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, {useRef, useState} from 'react';
-import { Linking,
+import {
+  Linking,
   Text,
   TouchableOpacity,
   ActivityIndicator,
-  TextInput
+  TextInput,
 } from 'react-native';
 import Input from '../../components/Input';
 import {Formik} from 'formik';
@@ -29,6 +30,7 @@ import {
   TermsContainer,
 } from './styles';
 import PasswordInput from '../../components/PasswordInput';
+import HeroImageLogin from '../../components/HeroImageLogin';
 
 interface Props {
   opening: boolean;
@@ -66,9 +68,9 @@ const Login: React.FC<Props> = ({opening}) => {
   });
   return (
     <MainContainer>
+      <HeroImageLogin move={true} startBottom={true} />
       <FixedView>
         <Bottom />
-        {/* <RoundMask move={false} startBottom={true} /> */}
       </FixedView>
       {error.status !== 404 && error.status !== 403 ? (
         <Formik
@@ -76,10 +78,6 @@ const Login: React.FC<Props> = ({opening}) => {
           onSubmit={async (values, {setFieldError}) => {
             try {
               setLoading(true);
-              // await signIn({
-              //   email: values.email,
-              //   password: values.password,
-              // });
             } catch (err) {
               setFieldError('password', 'Email/senha inválidos.');
             } finally {
@@ -114,30 +112,6 @@ const Login: React.FC<Props> = ({opening}) => {
                     }}
                   />
                 </InputWrapper>
-                <SmallText
-                  onPress={() => {
-                    // navigation.navigate('ForgotPassword');
-                  }}
-                  style={{
-                    alignSelf: 'center',
-                    width: '90%',
-                  }}>
-                  Esqueci minha senha
-                </SmallText>
-                <TermsContainer>
-                  <TermsText>
-                    Ao realizar login em sua conta, você está concordando com os
-                    nossos
-                    <TouchableTextContainer
-                      onPress={() => {
-                        Linking.openURL(
-                          'https://overstress.com.br/termos-de-uso',
-                        );
-                      }}>
-                      <ClicklableText>Termos de Uso.</ClicklableText>
-                    </TouchableTextContainer>
-                  </TermsText>
-                </TermsContainer>
               </TopWrapper>
               <BottomWrapper>
                 <LoginButton
@@ -164,20 +138,6 @@ const Login: React.FC<Props> = ({opening}) => {
                     <ActivityIndicator color="white" />
                   )}
                 </LoginButton>
-                <TouchableOpacity
-                  style={{
-                    width: '100%',
-                    display: 'flex',
-                    flexDirection: 'row',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                  }}
-                  onPress={() => {
-                    // navigation.navigate('FirstAccess');
-                  }}>
-                  {/* <InterrogationIcon /> */}
-                  <SmallText> Primeiro acesso?</SmallText>
-                </TouchableOpacity>
               </BottomWrapper>
             </FormWrapper>
           )}

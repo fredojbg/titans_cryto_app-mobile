@@ -16,7 +16,7 @@ interface IconProps {
 export const Container = styled.View<ContainerProps>`
   flex-direction: row;
   align-items: center;
-
+  background-color: #161C22;
   padding: ${() => (Platform.OS === 'ios' ? '10px' : '0px 10px')};
   margin: 10px 0px;
 
@@ -34,8 +34,6 @@ export const Container = styled.View<ContainerProps>`
     css`
       border-color: #d4cdfc;
     `}
-    background-color: ${({transparent, theme}) =>
-    transparent ? '#00000000' : theme.colors.background};
 `;
 
 export const TextInput = styled.TextInput.attrs(({theme}) => {
